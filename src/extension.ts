@@ -10,7 +10,8 @@ interface Keybinding {
     when?: string;
 }
 
-export async function generateKeybindings(extensionPath: string) {
+// eslint-disable-next-line unused-imports/no-unused-vars
+async function generateKeybindings(extensionPath: string) {
     await vscode.commands.executeCommand('workbench.action.openDefaultKeybindingsFile');
 
     const keybindings = parse(vscode.window.activeTextEditor!.document.getText()) as Keybinding[];
@@ -90,10 +91,11 @@ export async function generateKeybindings(extensionPath: string) {
     );
 }
 
-export function activate(_context: vscode.ExtensionContext) {
+// eslint-disable-next-line unused-imports/no-unused-vars
+export function activate(context: vscode.ExtensionContext) {
     console.log('Congratulations, your extension "vscode-classic-experience" is now active!');
 
-    generateKeybindings(_context.extensionPath);
+    // generateKeybindings(context.extensionPath);
 }
 
 export function deactivate() {}
