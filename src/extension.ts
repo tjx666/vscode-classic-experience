@@ -1,32 +1,86 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import fs from 'fs/promises';
+import path from 'path';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log(
-        'Congratulations, your extension "awesome-vscode-extension-boilerplate" is now active!',
-    );
+import { parse } from 'jsonc-parser';
+import vscode from 'vscode';
 
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with registerCommand
-    // The commandId parameter must match the command field in package.json
-    const disposable = vscode.commands.registerCommand(
-        'awesome-vscode-extension-boilerplate.helloWorld',
-        () => {
-            // The code you place here will be executed every time your command is executed
-            // Display a message box to the user
-            vscode.window.showInformationMessage(
-                'Hello World from Awesome VSCode Extension Boilerplate!',
-            );
-        },
-    );
-
-    context.subscriptions.push(disposable);
+interface Keybinding {
+    key: string;
+    command: string;
+    when?: string;
 }
 
-// This method is called when your extension is deactivated
+export async function generateKeybindings(extensionPath: string) {
+    await vscode.commands.executeCommand('workbench.action.openDefaultKeybindingsFile');
+
+    const keybindings = parse(vscode.window.activeTextEditor!.document.getText()) as Keybinding[];
+    const cmdRKeybindings = keybindings.filter((kb) => kb.key.startsWith('cmd+r '));
+
+    // cursor use cmd + r as prefix, we restore to use cmd + k
+    const removedCmdRShortcuts = cmdRKeybindings.map((kb) => {
+        return {
+            ...kb,
+            command: `-${kb.command}`,
+        };
+    });
+
+    // cmd + k used as shortcut prefix, remove all 'cmd+k' shortcuts
+    const removedCmdKKeybindings = keybindings
+        .filter((kb) => kb.key === 'cmd+k')
+        .map((kb) => {
+            return {
+                ...kb,
+                command: `-${kb.command}`,
+            };
+        });
+
+    // replace cmd + r with cmd + k
+    const cmdKKeybindings = cmdRKeybindings.map((kb) => {
+        return {
+            ...kb,
+            key: kb.key.replace('cmd+r', 'cmd+k'),
+        };
+    });
+
+    // extra often used shortcuts in vscode to remove
+    const shortcutsToRemoved: Keybinding[] = [
+        {
+            key: 'shift+cmd+k',
+            command: '-aipopup.action.modal.generate',
+            when: 'editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible',
+        },
+        {
+            key: 'cmd+l',
+            command: '-aichat.newchataction',
+        },
+        {
+            key: 'shift+cmd+l',
+            command: '-aichat.insertselectionintochat',
+        },
+    ];
+
+    const resultShortcuts = [
+        ...removedCmdRShortcuts,
+        ...removedCmdKKeybindings,
+        ...cmdKKeybindings,
+        ...shortcutsToRemoved,
+    ];
+
+    const extensionPackageJsonPath = path.resolve(extensionPath, 'package.json');
+    const extensionPackageJson = await fs.readFile(extensionPackageJsonPath, 'utf8');
+    const extensionPackageJsonObj = JSON.parse(extensionPackageJson);
+    extensionPackageJsonObj.contributes.keybindings = resultShortcuts;
+    await fs.writeFile(
+        extensionPackageJsonPath,
+        JSON.stringify(extensionPackageJsonObj, null, 4),
+        'utf8',
+    );
+}
+
+export function activate(_context: vscode.ExtensionContext) {
+    console.log('Congratulations, your extension "vscode-classic-experience" is now active!');
+
+    // generateKeybindings(context.extensionPath);
+}
+
 export function deactivate() {}
