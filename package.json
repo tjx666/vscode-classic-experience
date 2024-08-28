@@ -1,32 +1,35 @@
 {
-    "name": "awesome-vscode-extension-boilerplate",
-    "displayName": "Awesome VSCode Extension Boilerplate",
+    "name": "vscode-classic-experience",
+    "displayName": "Vscode Classic Experience",
     "version": "0.0.29",
-    "description": "An awesome vscode extension boilerplate",
+    "description": "Restore familiar VSCode keybindings in Cursor editor. Smooth transition for VSCode users.",
     "publisher": "YuTengjing",
     "private": true,
     "preview": true,
     "author": {
         "name": "YuTengjing",
         "email": "ytj2713151713@gmail.com",
-        "url": "https://github.com/tjx666"
+        "url": "https://github.com/tjx666/tjx666"
     },
     "license": "SEE LICENSE IN LICENSE",
-    "homepage": "https://github.com/tjx666/awesome-vscode-extension-boilerplate/blob/master/README.md",
+    "homepage": "https://github.com/tjx666/vscode-classic-experience/blob/master/README.md",
     "repository": {
         "type": "git",
-        "url": "https://github.com/tjx666/awesome-vscode-extension-boilerplate"
+        "url": "https://github.com/tjx666/vscode-classic-experience"
     },
     "bugs": {
-        "url": "https://github.com/tjx666/awesome-vscode-extension-boilerplate/issues",
+        "url": "https://github.com/tjx666/vscode-classic-experience/issues",
         "email": "ytj2713151713@gmail.com"
     },
     "keywords": [
-        "boilerplate",
-        "template"
+        "Keybings",
+        "keymap",
+        "Importer",
+        "Settings",
+        "Cursor"
     ],
     "categories": [
-        "Other"
+        "Keymaps"
     ],
     "main": "./out/src/extension.js",
     "icon": "assets/logo.png",
@@ -38,7 +41,7 @@
         {
             "url": "https://img.shields.io/badge/PRs-welcome-brightgreen.svg",
             "description": "PRs Welcome",
-            "href": "https://github.com/tjx666/awesome-vscode-extension-boilerplate/fork"
+            "href": "https://github.com/tjx666/vscode-classic-experience/fork"
         }
     ],
     "activationEvents": [],
