@@ -96,9 +96,6 @@ jobs:
         env:
           VSCE_PAT: ${{ secrets.VS_MARKETPLACE_TOKEN }}
 
-      - name: Publish to Open VSX Registry
-        run: pnpm run publish:open-vsx -p ${{ secrets.OPEN_VSX_TOKEN }}
-
       - name: Github Release
         run: npx changelogithub
         env:
