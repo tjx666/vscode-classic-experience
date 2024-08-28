@@ -1,6 +1,6 @@
 {
     "name": "vscode-classic-experience",
-    "displayName": "Vscode Classic Experience",
+    "displayName": "VSCode Keybindings for Cursor",
     "version": "0.0.29",
     "description": "Restore familiar VSCode keybindings in Cursor editor. Smooth transition for VSCode users.",
     "publisher": "YuTengjing",
@@ -1915,6 +1915,15 @@
             {
                 "key": "shift+cmd+l",
                 "command": "-aichat.insertselectionintochat"
+            },
+            {
+                "key": "cmd+e",
+                "command": "aipopup.action.modal.generate",
+                "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible"
+            },
+            {
+                "key": "cmd+]",
+                "command": "aichat.newchataction"
             }
         ]
     },

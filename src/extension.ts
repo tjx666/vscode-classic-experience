@@ -59,11 +59,24 @@ export async function generateKeybindings(extensionPath: string) {
         },
     ];
 
+    const additionalShortcuts = [
+        {
+            key: 'cmd+e',
+            command: 'aipopup.action.modal.generate',
+            when: 'editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible',
+        },
+        {
+            key: 'cmd+]',
+            command: 'aichat.newchataction',
+        },
+    ];
+
     const resultShortcuts = [
         ...removedCmdRShortcuts,
         ...removedCmdKKeybindings,
         ...cmdKKeybindings,
         ...shortcutsToRemoved,
+        ...additionalShortcuts,
     ];
 
     const extensionPackageJsonPath = path.resolve(extensionPath, 'package.json');
@@ -80,7 +93,7 @@ export async function generateKeybindings(extensionPath: string) {
 export function activate(_context: vscode.ExtensionContext) {
     console.log('Congratulations, your extension "vscode-classic-experience" is now active!');
 
-    // generateKeybindings(context.extensionPath);
+    generateKeybindings(_context.extensionPath);
 }
 
 export function deactivate() {}
