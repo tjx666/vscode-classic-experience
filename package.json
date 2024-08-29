@@ -997,6 +997,15 @@
             {
                 "key": "cmd+]",
                 "command": "aichat.newchataction"
+            },
+            {
+                "key": "shift+cmd+]",
+                "command": "aichat.insertselectionintochat"
+            },
+            {
+                "key": "cmd+l",
+                "command": "expandLineSelection",
+                "when": "textInputFocus"
             }
         ]
     },

@@ -70,6 +70,17 @@ async function generateKeybindings(extensionPath: string) {
             key: 'cmd+]',
             command: 'aichat.newchataction',
         },
+        {
+            key: 'shift+cmd+]',
+            command: 'aichat.insertselectionintochat',
+        },
+
+        // cursor missing this shortcut
+        {
+            key: 'cmd+l',
+            command: 'expandLineSelection',
+            when: 'textInputFocus',
+        },
     ];
 
     const resultShortcuts = [
