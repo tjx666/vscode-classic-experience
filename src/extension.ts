@@ -83,12 +83,26 @@ async function generateKeybindings(extensionPath: string) {
         },
     ];
 
+    const keyChordLeader = [
+        {
+            key: 'cmd+r',
+            command: '-workbench.action.keychord.leader',
+            when: 'false',
+        },
+        {
+            key: 'cmd+k',
+            command: 'workbench.action.keychord.leader',
+            when: 'false',
+        },
+    ];
+
     const resultShortcuts = [
         ...removedCmdRShortcuts,
         ...removedCmdKKeybindings,
         ...cmdKKeybindings,
         ...shortcutsToRemoved,
         ...additionalShortcuts,
+        ...keyChordLeader,
     ];
 
     const extensionPackageJsonPath = path.resolve(extensionPath, 'package.json');

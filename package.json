@@ -1006,11 +1006,22 @@
                 "key": "cmd+l",
                 "command": "expandLineSelection",
                 "when": "textInputFocus"
+            },
+            {
+                "key": "cmd+r",
+                "command": "-workbench.action.keychord.leader",
+                "when": "false"
+            },
+            {
+                "key": "cmd+k",
+                "command": "workbench.action.keychord.leader",
+                "when": "false"
             }
         ]
     },
     "eslintConfig": {
         "extends": "@yutengjing/eslint-config-typescript",
+        "reportUnusedDisableDirectives": false,
         "ignorePatterns": [
             "test-workspace"
         ]
