@@ -8,14 +8,19 @@
 
 </div>
 
+![screenshot](https://github.com/tjx666/vscode-classic-experience/blob/main/assets/screenshot.png?raw=true)
+
 ## Features
 
 Restore all original VSCode keybindings with a single installation. This extension brings back the familiar keyboard shortcuts you know and love, enhancing your coding experience without any additional configuration.
 
-some additional shortcuts:
-
-- `cmd+e`: cursor edit
-- `cmd+]`: cursor new chat
+- remove the shortcuts prefixed with `cmd + r`
+- restore the shortcuts prefixed with `cmd + k` which you already learned in vscode
+- adjust some often used shortcuts but modified by cursor
+  - `cmd + k`: prefix shortcut in vscode, but `Open Edit` in cursor, which changed to `cmd + e`
+  - `shift+cmd+k`: `Delete Line` in vscode, but `Open Edit` in cursor, also changed to `cmd + e`
+  - `cmd + l`: `Expand Line Selection` in vscode, but `Open New Chat` in cursor, changed to `cmd + ]`
+  - `cmd + shift + l`: `Select All Occurrences of Find Match` in vscode, but `Insert Selection Into Chat` in cursor, changed to `cmd + shift + ]`
 
 ## Recommended settings
 
