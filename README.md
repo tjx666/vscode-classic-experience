@@ -12,17 +12,17 @@
 
 ## Features
 
-Restore all original VSCode keybindings with a single installation. This extension brings back the familiar keyboard shortcuts you know and love, enhancing your coding experience without any additional configuration.
+Seamlessly restore the familiar VSCode keybindings in Cursor with a single installation. This extension brings back the keyboard shortcuts you know and love, enhancing your coding experience without any additional configuration.
 
-- remove the shortcuts prefixed with `cmd + r`
-- restore the shortcuts prefixed with `cmd + k` which you already learned in vscode
-- adjust some often used shortcuts but modified by cursor
-  - `cmd + k`: prefix shortcut in vscode, but `Open Edit` in cursor, which changed to `cmd + e`
-  - `shift+cmd+k`: `Delete Line` in vscode, but `Open Edit` in cursor, also changed to `cmd + e`
-  - `cmd + l`: `Expand Line Selection` in vscode, but `Open New Chat` in cursor, changed to `cmd + ]`
-  - `cmd + shift + l`: `Select All Occurrences of Find Match` in vscode, but `Insert Selection Into Chat` in cursor, changed to `cmd + shift + ]`
+Key improvements:
 
-## Recommended settings
+- Removes shortcuts prefixed with `⌘ + R`
+- Restores the familiar `⌘ + K` prefixed shortcuts from VSCode
+- Adjusts frequently used shortcuts modified by Cursor:
+  - `⌘ + K`: Restored as VSCode's prefix shortcut (previously "Open Edit" in Cursor, now `⌘ + E`)
+  - `⇧ + ⌘ + K`: Restored as "Delete Line" (previously "Open Edit" in Cursor, now `⌘ + E`)
+  - `⌘ + L`: Restored as "Expand Line Selection" (previously "Open New Chat" in Cursor, now `⌘ + ]`)
+  - `⇧ + ⌘ + L`: Restored as "Select All Occurrences of Find Match" (previously "Insert Selection Into Chat" in Cursor, now `⌘ + ⇧ + ]`)
 
 ```jsonc
 {
@@ -30,6 +30,21 @@ Restore all original VSCode keybindings with a single installation. This extensi
   "workbench.activityBar.orientation": "vertical",
 }
 ```
+
+## Alternatives
+
+While you can restore the `⌘ + K` keybinding prefix by changing the `workbench.action.keychord.leader` to `⌘ + K`, this approach has some drawbacks:
+
+1. It adds numerous keybindings to your `keybindings.json`, making it harder to manage.
+2. It doesn't address other frequently used keybindings modified by Cursor, such as `⌘ + L`.
+
+This extension provides a more comprehensive and manageable solution to restore VSCode-like keybindings in Cursor.
+
+![keychord leader](https://github.com/tjx666/vscode-classic-experience/blob/main/assets/keychored_leader.png?raw=true)
+
+## Known Issues
+
+As this extension has been primarily developed and tested on macOS, compatibility with Windows and Linux systems has not been thoroughly verified. However, it is expected that most keybindings should work across platforms. If you encounter any issues or discrepancies on Windows or Linux, please don't hesitate to open an issue or submit a pull request. Your feedback and contributions are greatly appreciated to help improve cross-platform compatibility.
 
 ## My extensions
 
