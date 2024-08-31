@@ -510,29 +510,6 @@
                 "when": "focusedView != ''"
             },
             {
-                "key": "cmd+k",
-                "command": "-workbench.action.terminal.clear",
-                "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled || accessibilityModeEnabled && accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewIsShown && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'"
-            },
-            {
-                "key": "cmd+k",
-                "command": "-composer.startComposerPrompt",
-                "when": "composerIsEnabled"
-            },
-            {
-                "key": "cmd+k",
-                "command": "-aipopup.action.modal.generate",
-                "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible",
-                "args": {
-                    "invocationType": "new"
-                }
-            },
-            {
-                "key": "cmd+k",
-                "command": "-cursorai.action.generateInTerminal",
-                "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-            },
-            {
                 "key": "cmd+k cmd+c",
                 "command": "editor.action.addCommentLine",
                 "when": "editorTextFocus && !editorReadonly"
@@ -985,6 +962,42 @@
                 "when": "focusedView != ''"
             },
             {
+                "key": "cmd+k",
+                "command": "-composer.startComposerPrompt",
+                "when": "composerIsEnabled"
+            },
+            {
+                "key": "cmd+k",
+                "command": "-aipopup.action.modal.generate",
+                "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible",
+                "args": {
+                    "invocationType": "new"
+                }
+            },
+            {
+                "key": "cmd+k",
+                "command": "-cursorai.action.generateInTerminal",
+                "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+            },
+            {
+                "key": "cmd+e",
+                "command": "composer.startComposerPrompt",
+                "when": "composerIsEnabled"
+            },
+            {
+                "key": "cmd+e",
+                "command": "aipopup.action.modal.generate",
+                "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible",
+                "args": {
+                    "invocationType": "new"
+                }
+            },
+            {
+                "key": "cmd+e",
+                "command": "cursorai.action.generateInTerminal",
+                "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+            },
+            {
                 "key": "shift+cmd+k",
                 "command": "-aipopup.action.modal.generate",
                 "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible"
@@ -996,11 +1009,6 @@
             {
                 "key": "shift+cmd+l",
                 "command": "-aichat.insertselectionintochat"
-            },
-            {
-                "key": "cmd+e",
-                "command": "aipopup.action.modal.generate",
-                "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible"
             },
             {
                 "key": "cmd+]",
@@ -1050,6 +1058,7 @@
         "postinstall": "stale-dep -u",
         "prepare": "simple-git-hooks",
         "clean": "npx rimraf -rf ./out",
+        "reset-keybindings": "node-jq '.contributes.keybindings = []' package.json",
         "esbuild:base": "stale-dep && tsx scripts/esbuild.ts",
         "esbuild:watch": "pnpm esbuild:base --sourcemap --watch",
         "esbuild:analyze": "pnpm esbuild:base --minify --metafile --analyze && esbuild-visualizer --metadata ./meta.json --open",
@@ -1077,6 +1086,7 @@
         "jsonc-parser": "^3.3.1",
         "lint-staged": "^15.2.9",
         "mocha": "^10.7.3",
+        "node-jq": "^6.0.1",
         "prettier": "^3.3.3",
         "rimraf": "^6.0.1",
         "simple-git-hooks": "^2.11.1",

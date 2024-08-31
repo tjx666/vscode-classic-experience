@@ -25,9 +25,17 @@ async function generateKeybindings(extensionPath: string) {
         };
     });
 
+    // replace cmd + r with cmd + k
+    const cmdKKeybindings = cmdRKeybindings.map((kb) => {
+        return {
+            ...kb,
+            key: kb.key.replace('cmd+r', 'cmd+k'),
+        };
+    });
+
     // cmd + k used as shortcut prefix, remove all 'cmd+k' shortcuts
     const removedCmdKKeybindings = keybindings
-        .filter((kb) => kb.key === 'cmd+k')
+        .filter((kb) => kb.key === 'cmd+k' && !kb.command.startsWith('workbench.'))
         .map((kb) => {
             return {
                 ...kb,
@@ -35,11 +43,12 @@ async function generateKeybindings(extensionPath: string) {
             };
         });
 
-    // replace cmd + r with cmd + k
-    const cmdKKeybindings = cmdRKeybindings.map((kb) => {
+    // replace `cmd+k` to `cmd+e`
+    const cmdEKeybindings = removedCmdKKeybindings.map((kb) => {
         return {
             ...kb,
-            key: kb.key.replace('cmd+r', 'cmd+k'),
+            key: kb.key.replace('cmd+k', 'cmd+e'),
+            command: kb.command.slice(1),
         };
     });
 
@@ -61,11 +70,6 @@ async function generateKeybindings(extensionPath: string) {
     ];
 
     const additionalShortcuts = [
-        {
-            key: 'cmd+e',
-            command: 'aipopup.action.modal.generate',
-            when: 'editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible',
-        },
         {
             key: 'cmd+]',
             command: 'aichat.newchataction',
@@ -98,8 +102,9 @@ async function generateKeybindings(extensionPath: string) {
 
     const resultShortcuts = [
         ...removedCmdRShortcuts,
-        ...removedCmdKKeybindings,
         ...cmdKKeybindings,
+        ...removedCmdKKeybindings,
+        ...cmdEKeybindings,
         ...shortcutsToRemoved,
         ...additionalShortcuts,
         ...keyChordLeader,
