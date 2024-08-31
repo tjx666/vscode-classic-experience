@@ -24,9 +24,17 @@
     "keywords": [
         "keybindings",
         "keymap",
+        "shortcut",
         "importer",
         "settings",
-        "cursor"
+        "vscode",
+        "cursor",
+        "ai",
+        "claude",
+        "gpt",
+        "copilot",
+        "cmd+k",
+        "cmd+r"
     ],
     "categories": [
         "Keymaps"
