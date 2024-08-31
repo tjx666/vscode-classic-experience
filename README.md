@@ -10,6 +10,8 @@
 
 ![screenshot](https://github.com/tjx666/vscode-classic-experience/blob/main/assets/screenshot.png?raw=true)
 
+If you enjoy this extension, please consider giving it a [star ⭐](https://github.com/tjx666/vscode-classic-experience), and share it on [X (Twitter)](https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20VSCode%20extension%20for%20Cursor%20that%20restores%20familiar%20keybindings!%20https://github.com/tjx666/vscode-classic-experience). Thank you 🌹
+
 ## Features
 
 Seamlessly restore the familiar VSCode keybindings in Cursor with a single installation. This extension brings back the keyboard shortcuts you know and love, enhancing your coding experience without any additional configuration.
@@ -24,9 +26,14 @@ Key improvements:
   - `⌘ + L`: Restored as "Expand Line Selection" (previously "Open New Chat" in Cursor, now `⌘ + ]`)
   - `⇧ + ⌘ + L`: Restored as "Select All Occurrences of Find Match" (previously "Insert Selection Into Chat" in Cursor, now `⌘ + ⇧ + ]`)
 
+This extension will not modify any of your Cursor settings or local application files. It simply removes certain Cursor shortcuts and restores the original VSCode shortcuts using the extension API. There's no hidden magic involved. If you ever wish to revert to Cursor's original shortcuts, you can easily do so by disabling or uninstalling this extension.
+
+## Recommend Settings
+
+this bring back the original vscode activity bar and side bar layout, just like you see in above screenshot.
+
 ```jsonc
 {
-  // this bring back the original vscode activity bar and side bar layout
   "workbench.activityBar.orientation": "vertical",
 }
 ```
@@ -42,7 +49,7 @@ This extension provides a more comprehensive and manageable solution to restore 
 
 ![keychord leader](https://github.com/tjx666/vscode-classic-experience/blob/main/assets/keychored_leader.png?raw=true)
 
-## Known Issues
+## Windows and Linux
 
 As this extension has been primarily developed and tested on macOS, compatibility with Windows and Linux systems has not been thoroughly verified. However, it is expected that most keybindings should work across platforms. If you encounter any issues or discrepancies on Windows or Linux, please don't hesitate to open an issue or submit a pull request. Your feedback and contributions are greatly appreciated to help improve cross-platform compatibility.
 
