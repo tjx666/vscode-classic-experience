@@ -25,6 +25,7 @@ Key improvements:
   - `⇧ + ⌘ + K`: Restored as "Delete Line" (previously "Open Edit" in Cursor, now `⌘ + E`)
   - `⌘ + L`: Restored as "Expand Line Selection" (previously "Open New Chat" in Cursor, now `⌘ + ]`)
   - `⇧ + ⌘ + L`: Restored as "Select All Occurrences of Find Match" (previously "Insert Selection Into Chat" in Cursor, now `⌘ + ⇧ + ]`)
+- `⇧ + ⌘ + K`: Clear terminal output instead of `⌘ + K` [#3](https://github.com/tjx666/vscode-classic-experience/issues/3)
 
 This extension will not modify any of your Cursor settings or local application files. It simply removes certain Cursor shortcuts and restores the original VSCode shortcuts using the extension API. There's no hidden magic involved. If you ever wish to revert to Cursor's original shortcuts, you can easily do so by disabling or uninstalling this extension.
 
@@ -34,9 +35,15 @@ this bring back the original vscode activity bar and side bar layout, just like 
 
 ```jsonc
 {
+  // don't forget to restart to take effect
   "workbench.activityBar.orientation": "vertical",
 }
 ```
+
+How to custom vscode keybinding?
+
+- [Key Bindings for Visual Studio Code](https://code.visualstudio.com/docs/getstarted/keybindings)
+- [Customize Visual Studio Code Video Tutorial](https://code.visualstudio.com/docs/introvideos/customize)
 
 ## Alternatives
 

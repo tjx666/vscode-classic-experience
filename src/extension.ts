@@ -35,7 +35,7 @@ async function generateKeybindings(extensionPath: string) {
 
     // cmd + k used as shortcut prefix, remove all 'cmd+k' shortcuts
     const removedCmdKKeybindings = keybindings
-        .filter((kb) => kb.key === 'cmd+k' && !kb.command.startsWith('workbench.'))
+        .filter((kb) => kb.key === 'cmd+k')
         .map((kb) => {
             return {
                 ...kb,
@@ -44,13 +44,15 @@ async function generateKeybindings(extensionPath: string) {
         });
 
     // replace `cmd+k` to `cmd+e`
-    const cmdEKeybindings = removedCmdKKeybindings.map((kb) => {
-        return {
-            ...kb,
-            key: kb.key.replace('cmd+k', 'cmd+e'),
-            command: kb.command.slice(1),
-        };
-    });
+    const cmdEKeybindings = removedCmdKKeybindings
+        .filter((kb) => !kb.command.startsWith('-workbench.'))
+        .map((kb) => {
+            return {
+                ...kb,
+                key: kb.key.replace('cmd+k', 'cmd+e'),
+                command: kb.command.slice(1),
+            };
+        });
 
     // extra often used shortcuts in vscode to remove
     const shortcutsToRemoved: Keybinding[] = [
@@ -84,6 +86,12 @@ async function generateKeybindings(extensionPath: string) {
             key: 'cmd+l',
             command: 'expandLineSelection',
             when: 'textInputFocus',
+        },
+
+        // clear terminal
+        {
+            ...keybindings.find((kb) => kb.command === 'workbench.action.terminal.clear'),
+            key: 'shift+cmd+k',
         },
     ];
 

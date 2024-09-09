@@ -963,6 +963,11 @@
             },
             {
                 "key": "cmd+k",
+                "command": "-workbench.action.terminal.clear",
+                "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled || accessibilityModeEnabled && accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewIsShown && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'"
+            },
+            {
+                "key": "cmd+k",
                 "command": "-composer.startComposerPrompt",
                 "when": "composerIsEnabled"
             },
@@ -1022,6 +1027,11 @@
                 "key": "cmd+l",
                 "command": "expandLineSelection",
                 "when": "textInputFocus"
+            },
+            {
+                "key": "shift+cmd+k",
+                "command": "workbench.action.terminal.clear",
+                "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled || accessibilityModeEnabled && accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewIsShown && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'"
             },
             {
                 "key": "cmd+r",
