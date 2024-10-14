@@ -963,16 +963,6 @@
             },
             {
                 "key": "cmd+k",
-                "command": "-workbench.action.terminal.clear",
-                "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled || accessibilityModeEnabled && accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewIsShown && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'"
-            },
-            {
-                "key": "cmd+k",
-                "command": "-composer.startComposerPrompt",
-                "when": "composerIsEnabled"
-            },
-            {
-                "key": "cmd+k",
                 "command": "-aipopup.action.modal.generate",
                 "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible",
                 "args": {
@@ -983,11 +973,6 @@
                 "key": "cmd+k",
                 "command": "-cursorai.action.generateInTerminal",
                 "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-            },
-            {
-                "key": "cmd+e",
-                "command": "composer.startComposerPrompt",
-                "when": "composerIsEnabled"
             },
             {
                 "key": "cmd+e",
@@ -1029,18 +1014,8 @@
                 "when": "textInputFocus"
             },
             {
-                "key": "shift+cmd+k",
-                "command": "workbench.action.terminal.clear",
-                "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled || accessibilityModeEnabled && accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewIsShown && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'"
-            },
-            {
                 "key": "cmd+r",
                 "command": "-workbench.action.keychord.leader",
-                "when": "false"
-            },
-            {
-                "key": "cmd+k",
-                "command": "workbench.action.keychord.leader",
                 "when": "false"
             }
         ]

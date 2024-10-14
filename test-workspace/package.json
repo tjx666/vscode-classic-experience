@@ -1,3 +1,6 @@
 {
-    "name": "test-workspace"
+    "name": "test-workspace",
+    "dependencies": {
+        "typescript": "5.4.5"
+    }
 }
