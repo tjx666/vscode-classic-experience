@@ -34,14 +34,18 @@
         "gpt",
         "copilot",
         "cmd+k",
-        "cmd+r"
+        "cmd+r",
+        "keychord",
+        "leader",
+        "clear",
+        "terminal"
     ],
     "categories": [
         "Keymaps"
     ],
     "main": "./out/src/extension.js",
     "icon": "assets/logo.png",
-    "packageManager": "pnpm@9.9.0",
+    "packageManager": "pnpm@9.12.1",
     "engines": {
         "vscode": "^1.90.0"
     },
@@ -1056,27 +1060,27 @@
     },
     "devDependencies": {
         "@types/glob": "^8.1.0",
-        "@types/mocha": "^10.0.7",
-        "@types/node": "~20.16.2",
-        "@types/vscode": "1.90.0",
+        "@types/mocha": "^10.0.9",
+        "@types/node": "~20.16.11",
+        "@types/vscode": "~1.93.0",
         "@vscode/test-electron": "^2.4.1",
-        "@vscode/vsce": "^3.0.0",
-        "@yutengjing/eslint-config-typescript": "^1.2.2",
+        "@vscode/vsce": "^3.1.1",
+        "@yutengjing/eslint-config-typescript": "^1.2.5",
         "@yutengjing/prettier-config": "^1.3.0",
         "@yutengjing/release": "^0.3.1",
-        "esbuild": "~0.23.1",
+        "esbuild": "~0.24.0",
         "esbuild-visualizer": "^0.6.0",
-        "eslint": "^8.57.0",
+        "eslint": "^8.57.1",
         "glob": "^11.0.0",
         "jsonc-parser": "^3.3.1",
-        "lint-staged": "^15.2.9",
+        "lint-staged": "^15.2.10",
         "mocha": "^10.7.3",
         "node-jq": "^6.0.1",
         "prettier": "^3.3.3",
         "rimraf": "^6.0.1",
         "simple-git-hooks": "^2.11.1",
         "stale-dep": "^0.7.0",
-        "tsx": "^4.19.0",
-        "typescript": "~5.5.4"
+        "tsx": "^4.19.1",
+        "typescript": "~5.6.3"
     }
 }
