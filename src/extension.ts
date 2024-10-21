@@ -6,6 +6,7 @@ import vscode from 'vscode';
 
 interface Keybinding {
     key: string;
+    mac?: string;
     command: string;
     when?: string;
 }
@@ -21,6 +22,8 @@ async function generateKeybindings(extensionPath: string) {
     const removedCmdRShortcuts = cmdRKeybindings.map((kb) => {
         return {
             ...kb,
+            key: kb.key.replace('cmd+r', 'ctrl+r'),
+            mac: kb.key,
             command: `-${kb.command}`,
         };
     });
@@ -29,7 +32,8 @@ async function generateKeybindings(extensionPath: string) {
     const cmdKKeybindings = cmdRKeybindings.map((kb) => {
         return {
             ...kb,
-            key: kb.key.replace('cmd+r', 'cmd+k'),
+            key: kb.key.replace('cmd+r', 'ctrl+k'),
+            mac: kb.key.replace('cmd+r', 'cmd+k'),
         };
     });
 
@@ -40,6 +44,8 @@ async function generateKeybindings(extensionPath: string) {
         .map((kb) => {
             return {
                 ...kb,
+                key: kb.key.replace('cmd+k', 'ctrl+k'),
+                mac: kb.key,
                 command: `-${kb.command}`,
             };
         });
@@ -48,7 +54,8 @@ async function generateKeybindings(extensionPath: string) {
     const cmdEKeybindings = removedCmdKKeybindings.map((kb) => {
         return {
             ...kb,
-            key: kb.key.replace('cmd+k', 'cmd+e'),
+            key: 'ctrl+e',
+            mac: 'cmd+e',
             command: kb.command.slice(1),
         };
     });
@@ -56,33 +63,39 @@ async function generateKeybindings(extensionPath: string) {
     // extra often used shortcuts in vscode to remove
     const shortcutsToRemoved: Keybinding[] = [
         {
-            key: 'shift+cmd+k',
+            key: 'shift+ctrl+k',
+            mac: 'shift+cmd+k',
             command: '-aipopup.action.modal.generate',
             when: 'editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible',
         },
         {
-            key: 'cmd+l',
+            key: 'ctrl+l',
+            mac: 'cmd+l',
             command: '-aichat.newchataction',
         },
         {
-            key: 'shift+cmd+l',
+            key: 'shift+ctrl+l',
+            mac: 'shift+cmd+l',
             command: '-aichat.insertselectionintochat',
         },
     ];
 
     const additionalShortcuts = [
         {
-            key: 'cmd+]',
+            key: 'ctrl+]',
+            mac: 'cmd+]',
             command: 'aichat.newchataction',
         },
         {
-            key: 'shift+cmd+]',
+            key: 'shift+ctrl+]',
+            mac: 'shift+cmd+]',
             command: 'aichat.insertselectionintochat',
         },
 
         // cursor missing this shortcut
         {
-            key: 'cmd+l',
+            key: 'ctrl+l',
+            mac: 'cmd+l',
             command: 'expandLineSelection',
             when: 'textInputFocus',
         },
@@ -90,7 +103,8 @@ async function generateKeybindings(extensionPath: string) {
 
     const keyChordLeader = [
         {
-            key: 'cmd+r',
+            key: 'ctrl+r',
+            mac: 'cmd+r',
             command: '-workbench.action.keychord.leader',
             when: 'false',
         },
