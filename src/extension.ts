@@ -86,6 +86,13 @@ async function generateKeybindings(extensionPath: string) {
             key: 'ctrl+]',
             mac: 'cmd+]',
             command: 'aichat.newchataction',
+            when: '!view.workbench.panel.aichat.view.visible',
+        },
+        {
+            key: 'ctrl+]',
+            mac: 'cmd+]',
+            command: 'aichat.close-sidebar',
+            when: 'view.workbench.panel.aichat.view.visible',
         },
         {
             key: 'shift+ctrl+]',
