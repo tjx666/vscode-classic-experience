@@ -19,10 +19,11 @@ async function generateKeybindings(extensionPath: string) {
     const cmdRKeybindings = keybindings.filter((kb) => kb.key.startsWith('cmd+r '));
 
     // cursor use cmd + r as prefix, we restore to use cmd + k
+    // cursor use ctrl + m on windows
     const removedCmdRShortcuts = cmdRKeybindings.map((kb) => {
         return {
             ...kb,
-            key: kb.key.replace('cmd+r', 'ctrl+r'),
+            key: kb.key.replace('cmd+r', 'ctrl+m'),
             mac: kb.key,
             command: `-${kb.command}`,
         };
@@ -103,7 +104,7 @@ async function generateKeybindings(extensionPath: string) {
 
     const keyChordLeader = [
         {
-            key: 'ctrl+r',
+            key: 'ctrl+m',
             mac: 'cmd+r',
             command: '-workbench.action.keychord.leader',
             when: 'false',
@@ -133,8 +134,7 @@ async function generateKeybindings(extensionPath: string) {
 
 // eslint-disable-next-line unused-imports/no-unused-vars
 export function activate(context: vscode.ExtensionContext) {
-    console.log('Congratulations, your extension "vscode-classic-experience" is now active!');
-
+    // console.log('Congratulations, your extension "vscode-classic-experience" is now active!');
     // generateKeybindings(context.extensionPath);
 }
 
