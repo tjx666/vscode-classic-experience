@@ -85,8 +85,7 @@ async function generateKeybindings(extensionPath: string) {
         {
             key: 'ctrl+]',
             mac: 'cmd+]',
-            command: 'aichat.newchataction',
-            when: '!view.workbench.panel.aichat.view.visible',
+            command: 'aichat.newchataction'
         },
         {
             key: 'ctrl+]',
