@@ -16,17 +16,46 @@ If you enjoy this extension, please consider giving it a [star ⭐](https://gith
 
 Seamlessly restore the familiar VSCode keybindings in Cursor with a single installation. This extension brings back the keyboard shortcuts you know and love, enhancing your coding experience without any additional configuration.
 
+This extension will not modify any of your Cursor settings or local application files. It simply removes certain Cursor shortcuts and restores the original VSCode shortcuts using the extension API. There's no hidden magic involved. If you ever wish to revert to Cursor's original shortcuts, you can easily do so by disabling or uninstalling this extension.
+
 Key improvements:
 
 - Removes shortcuts prefixed with `⌘ + R`
 - Restores the familiar `⌘ + K` prefixed shortcuts from VSCode
 - Adjusts frequently used shortcuts modified by Cursor:
   - `⌘ + K`: Restored as VSCode's prefix shortcut (previously "Open Edit" in Cursor, now `⌘ + E`)
-  - `⇧ + ⌘ + K`: Restored as "Delete Line" (previously "Open Edit" in Cursor, now `⌘ + E`)
   - `⌘ + L`: Restored as "Expand Line Selection" (previously "Open New Chat" in Cursor, now `⌘ + ]`)
   - `⇧ + ⌘ + L`: Restored as "Select All Occurrences of Find Match" (previously "Insert Selection Into Chat" in Cursor, now `⌘ + ⇧ + ]`)
 
-This extension will not modify any of your Cursor settings or local application files. It simply removes certain Cursor shortcuts and restores the original VSCode shortcuts using the extension API. There's no hidden magic involved. If you ever wish to revert to Cursor's original shortcuts, you can easily do so by disabling or uninstalling this extension.
+`⇧ + ⌘ + K`: Restored as "Delete Line" (previously "[Add to Edit](https://docs.cursor.com/context/%40-symbols/%40-code#from-the-editor)". But, we don't change it to `⌘ + ⇧ + E` because `⌘ + ⇧ + E` is a built-in shortcut to Focus File Explorer. I recommend you to custom it by yourself.
+
+For example:
+
+```jsonc
+//  keybindings.json
+[
+  // solution1: this will override built-in cmd+shift+e
+  {
+    "key": "shift+cmd+e",
+    "command": "aipopup.action.modal.generate",
+    "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible",
+    "args": { "invocationType": "toggle" },
+  },
+
+  // solution2: use alt+shift+e, this is not a built-in shortcut
+  {
+    "key": "alt+shift+e",
+    "command": "aipopup.action.modal.generate",
+    "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible",
+    "args": { "invocationType": "toggle" },
+  },
+]
+```
+
+How to custom vscode keybinding?
+
+- [Key Bindings for Visual Studio Code](https://code.visualstudio.com/docs/getstarted/keybindings)
+- [Customize Visual Studio Code Video Tutorial](https://code.visualstudio.com/docs/introvideos/customize)
 
 ## Recommend Settings
 
@@ -38,11 +67,6 @@ this bring back the original vscode activity bar and side bar layout, just like 
   "workbench.activityBar.orientation": "vertical",
 }
 ```
-
-How to custom vscode keybinding?
-
-- [Key Bindings for Visual Studio Code](https://code.visualstudio.com/docs/getstarted/keybindings)
-- [Customize Visual Studio Code Video Tutorial](https://code.visualstudio.com/docs/introvideos/customize)
 
 ## Alternatives
 
