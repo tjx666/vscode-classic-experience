@@ -1,7 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-import { parse } from 'jsonc-parser';
 import vscode from 'vscode';
 
 interface Keybinding {
@@ -13,6 +12,7 @@ interface Keybinding {
 
 // eslint-disable-next-line unused-imports/no-unused-vars
 async function generateKeybindings(extensionPath: string) {
+    const { parse } = await import('jsonc-parser');
     await vscode.commands.executeCommand('workbench.action.openDefaultKeybindingsFile');
 
     const keybindings = parse(vscode.window.activeTextEditor!.document.getText()) as Keybinding[];
