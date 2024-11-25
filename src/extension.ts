@@ -72,6 +72,13 @@ async function generateKeybindings(extensionPath: string) {
             args: { invocationType: 'toggle' },
         },
         {
+            key: 'alt+shift+i',
+            mac: 'cmd+shift+i',
+            command: 'aipopup.action.modal.generate',
+            when: 'editorFocus && !composerBarIsVisible',
+            args: { invocationType: 'toggle' },
+        },
+        {
             key: 'ctrl+l',
             mac: 'cmd+l',
             command: '-aichat.newchataction',

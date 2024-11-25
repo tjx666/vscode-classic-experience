@@ -26,31 +26,7 @@ Key improvements:
   - `⌘ + K`: Restored as VSCode's prefix shortcut (previously "Open Edit" in Cursor, now `⌘ + E`)
   - `⌘ + L`: Restored as "Expand Line Selection" (previously "Open New Chat" in Cursor, now `⌘ + ]`)
   - `⇧ + ⌘ + L`: Restored as "Select All Occurrences of Find Match" (previously "Insert Selection Into Chat" in Cursor, now `⌘ + ⇧ + ]`)
-
-`⇧ + ⌘ + K`: Restored as "Delete Line" (previously "[Add to Edit](https://docs.cursor.com/context/%40-symbols/%40-code#from-the-editor)". But, we don't change it to `⌘ + ⇧ + E` because `⌘ + ⇧ + E` is a built-in shortcut to Focus File Explorer. I recommend you to custom it by yourself.
-
-For example:
-
-```jsonc
-//  keybindings.json
-[
-  // solution1: this will override built-in cmd+shift+e
-  {
-    "key": "shift+cmd+e",
-    "command": "aipopup.action.modal.generate",
-    "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible",
-    "args": { "invocationType": "toggle" },
-  },
-
-  // solution2: use alt+shift+e, this is not a built-in shortcut
-  {
-    "key": "alt+shift+e",
-    "command": "aipopup.action.modal.generate",
-    "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible",
-    "args": { "invocationType": "toggle" },
-  },
-]
-```
+  - `⇧ + ⌘ + K`: Restored as "Delete Line" (previously "[Add to Edit](https://docs.cursor.com/context/%40-symbols/%40-code#from-the-editor), just add current selection to composer", because open composer is `⌘ + I`, so, I change the command shortcut to `⇧ + ⌘ + I`)
 
 How to custom vscode keybinding?
 
