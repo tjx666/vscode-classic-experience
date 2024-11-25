@@ -8,6 +8,7 @@ interface Keybinding {
     mac?: string;
     command: string;
     when?: string;
+    args?: Record<string, any>;
 }
 
 // eslint-disable-next-line unused-imports/no-unused-vars
@@ -67,7 +68,8 @@ async function generateKeybindings(extensionPath: string) {
             key: 'shift+ctrl+k',
             mac: 'shift+cmd+k',
             command: '-aipopup.action.modal.generate',
-            when: 'editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible',
+            when: 'editorFocus && !composerBarIsVisible',
+            args: { invocationType: 'toggle' },
         },
         {
             key: 'ctrl+l',

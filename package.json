@@ -1162,7 +1162,7 @@
             {
                 "key": "ctrl+k",
                 "command": "-aipopup.action.modal.generate",
-                "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible",
+                "when": "editorFocus && !composerBarIsVisible",
                 "args": {
                     "invocationType": "new"
                 },
@@ -1177,7 +1177,7 @@
             {
                 "key": "ctrl+e",
                 "command": "aipopup.action.modal.generate",
-                "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible",
+                "when": "editorFocus && !composerBarIsVisible",
                 "args": {
                     "invocationType": "new"
                 },
@@ -1193,7 +1193,10 @@
                 "key": "shift+ctrl+k",
                 "mac": "shift+cmd+k",
                 "command": "-aipopup.action.modal.generate",
-                "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible"
+                "when": "editorFocus && !composerBarIsVisible",
+                "args": {
+                    "invocationType": "toggle"
+                }
             },
             {
                 "key": "ctrl+l",
