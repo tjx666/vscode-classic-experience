@@ -27,6 +27,7 @@ Key improvements:
   - `⌘ + L`: Restored as "Expand Line Selection" (previously "Open New Chat" in Cursor, now `⌘ + ]`)
   - `⇧ + ⌘ + L`: Restored as "Select All Occurrences of Find Match" (previously "Insert Selection Into Chat" in Cursor, now `⌘ + ⇧ + ]`)
   - `⇧ + ⌘ + K`: Restored as "Delete Line" (previously "[Add to Edit](https://docs.cursor.com/context/%40-symbols/%40-code#from-the-editor), just add current selection to composer", because open composer is `⌘ + I`, so, I change the command shortcut to `⇧ + ⌘ + I`)
+  - You can use `⇧ + ⌘ + K` to clear terminal in Cursor, because you can't make `⌘ + K` to clear terminal work in Cursor.
 
 How to custom vscode keybinding?
 

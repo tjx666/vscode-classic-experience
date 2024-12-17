@@ -116,6 +116,14 @@ async function generateKeybindings(extensionPath: string) {
             command: 'expandLineSelection',
             when: 'textInputFocus',
         },
+
+        // cmd + k can't clear terminal in cursor
+        {
+            key: 'shift+ctrl+k',
+            mac: 'shift+cmd+k',
+            command: 'workbench.action.terminal.clear',
+            when: keybindings.find((kb) => kb.command === 'workbench.action.terminal.clear')?.when,
+        },
     ];
 
     const keyChordLeader = [

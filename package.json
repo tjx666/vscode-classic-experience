@@ -1241,6 +1241,12 @@
                 "when": "textInputFocus"
             },
             {
+                "key": "shift+ctrl+k",
+                "mac": "shift+cmd+k",
+                "command": "workbench.action.terminal.clear",
+                "when": "terminalFocus && terminalHasBeenCreated && !accessibilityModeEnabled || terminalFocus && terminalProcessSupported && !accessibilityModeEnabled || accessibilityModeEnabled && accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewIsShown && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'"
+            },
+            {
                 "key": "ctrl+m",
                 "mac": "cmd+r",
                 "command": "-workbench.action.keychord.leader",
