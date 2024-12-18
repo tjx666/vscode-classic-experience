@@ -67,17 +67,16 @@ async function generateKeybindings(extensionPath: string) {
         {
             key: 'shift+ctrl+k',
             mac: 'shift+cmd+k',
+            command: '-composer.openAsBar',
+        },
+        {
+            key: 'shift+ctrl+k',
+            mac: 'shift+cmd+k',
             command: '-aipopup.action.modal.generate',
             when: 'editorFocus && !composerBarIsVisible',
             args: { invocationType: 'toggle' },
         },
-        {
-            key: 'alt+shift+i',
-            mac: 'cmd+shift+i',
-            command: 'aipopup.action.modal.generate',
-            when: 'editorFocus && !composerBarIsVisible',
-            args: { invocationType: 'toggle' },
-        },
+
         {
             key: 'ctrl+l',
             mac: 'cmd+l',
