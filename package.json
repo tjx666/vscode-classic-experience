@@ -45,9 +45,9 @@
     ],
     "main": "./out/src/extension.js",
     "icon": "assets/logo.png",
-    "packageManager": "pnpm@9.14.2",
+    "packageManager": "pnpm@9.15.4",
     "engines": {
-        "vscode": "^1.93.0"
+        "vscode": "^1.96.0"
     },
     "badges": [
         {
@@ -268,6 +268,7 @@
             {
                 "key": "ctrl+m alt+cmd+c",
                 "command": "-workbench.action.addComment",
+                "when": "activeCursorHasCommentingRange",
                 "mac": "cmd+r alt+cmd+c"
             },
             {
@@ -292,12 +293,6 @@
                 "command": "-editor.action.defineKeybinding",
                 "when": "resource == 'vscode-userdata:/Users/yutengjing/Library/Application%20Support/Cursor/User/keybindings.json'",
                 "mac": "cmd+r cmd+k"
-            },
-            {
-                "key": "ctrl+m i",
-                "command": "-inlineChat.start",
-                "when": "editorFocus && inlineChatHasProvider && !editorReadonly",
-                "mac": "cmd+r i"
             },
             {
                 "key": "ctrl+m cmd+a",
@@ -817,6 +812,7 @@
             {
                 "key": "ctrl+k alt+cmd+c",
                 "command": "workbench.action.addComment",
+                "when": "activeCursorHasCommentingRange",
                 "mac": "cmd+k alt+cmd+c"
             },
             {
@@ -841,12 +837,6 @@
                 "command": "editor.action.defineKeybinding",
                 "when": "resource == 'vscode-userdata:/Users/yutengjing/Library/Application%20Support/Cursor/User/keybindings.json'",
                 "mac": "cmd+k cmd+k"
-            },
-            {
-                "key": "ctrl+k i",
-                "command": "inlineChat.start",
-                "when": "editorFocus && inlineChatHasProvider && !editorReadonly",
-                "mac": "cmd+k i"
             },
             {
                 "key": "ctrl+k cmd+a",
@@ -1287,26 +1277,26 @@
     "devDependencies": {
         "@types/glob": "^8.1.0",
         "@types/mocha": "^10.0.10",
-        "@types/node": "~20.17.6",
-        "@types/vscode": "~1.93.0",
+        "@types/node": "~20.17.16",
+        "@types/vscode": "~1.96.0",
         "@vscode/test-electron": "^2.4.1",
         "@vscode/vsce": "^3.2.1",
-        "@yutengjing/eslint-config-typescript": "^1.3.0",
-        "@yutengjing/prettier-config": "^1.3.0",
+        "@yutengjing/eslint-config-typescript": "^1.6.2",
+        "@yutengjing/prettier-config": "^1.5.0",
         "@yutengjing/release": "^0.3.1",
-        "esbuild": "~0.24.0",
-        "esbuild-visualizer": "^0.6.0",
+        "esbuild": "~0.24.2",
+        "esbuild-visualizer": "^0.7.0",
         "eslint": "^8.57.1",
-        "glob": "^11.0.0",
+        "glob": "^11.0.1",
         "jsonc-parser": "^3.3.1",
-        "lint-staged": "^15.2.10",
-        "mocha": "^10.8.2",
+        "lint-staged": "^15.4.2",
+        "mocha": "^11.1.0",
         "node-jq": "^6.0.1",
-        "prettier": "^3.3.3",
+        "prettier": "^3.4.2",
         "rimraf": "^6.0.1",
         "simple-git-hooks": "^2.11.1",
         "stale-dep": "^0.7.0",
         "tsx": "^4.19.2",
-        "typescript": "~5.6.3"
+        "typescript": "~5.7.3"
     }
 }
