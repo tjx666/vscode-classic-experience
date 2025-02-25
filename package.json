@@ -45,7 +45,7 @@
     ],
     "main": "./out/src/extension.js",
     "icon": "assets/logo.png",
-    "packageManager": "pnpm@9.15.4",
+    "packageManager": "pnpm@9.15.6",
     "engines": {
         "vscode": "^1.96.0"
     },
@@ -60,6 +60,12 @@
         "onStartupFinished"
     ],
     "contributes": {
+        "jsonValidation": [
+            {
+                "fileMatch": ".cursor/mcp.json",
+                "url": "./schemas/mcp.schema.json"
+            }
+        ],
         "keybindings": [
             {
                 "key": "ctrl+m cmd+c",
