@@ -28,20 +28,36 @@ Key improvements:
   - `⇧ + ⌘ + L`: Restored as "Select All Occurrences of Find Match" (previously "Insert Selection Into Chat" in Cursor, now `⌘ + ⇧ + ]`)
   - `⇧ + ⌘ + K`: Restored as "Delete Line" (previously "[Add to Edit](https://docs.cursor.com/context/%40-symbols/%40-code#from-the-editor), just add current selection to composer"). I didn't add a new shortcut for `Add to Edit`, custom it as you like.
   - You can use `⇧ + ⌘ + K` to clear terminal in Cursor, because you can't make `⌘ + K` to clear terminal work in Cursor.
+- `.cursor/mcp.json` json validate schema
 
-How to custom vscode keybinding?
+### How to custom vscode keybinding?
 
 - [Key Bindings for Visual Studio Code](https://code.visualstudio.com/docs/getstarted/keybindings)
 - [Customize Visual Studio Code Video Tutorial](https://code.visualstudio.com/docs/introvideos/customize)
 
-## Recommend Settings
+### How to bring back the original vscode activity bar and side bar layout
 
-this bring back the original vscode activity bar and side bar layout, just like you see in above screenshot.
+just like you see in above screenshot, only need add following settings to your `settings.json`
 
 ```jsonc
 {
   // don't forget to restart to take effect
   "workbench.activityBar.orientation": "vertical",
+}
+```
+
+### How to use the `.cursor/mcp.json` without install this extension
+
+just add following settings to your `settings.json`
+
+```jsonc
+{
+  "json.schemas": [
+    {
+      "fileMatch": [".cursor/mcp.json"],
+      "url": "https://raw.githubusercontent.com/tjx666/vscode-classic-experience/refs/heads/main/schemas/mcp.schema.json",
+    },
+  ],
 }
 ```
 
