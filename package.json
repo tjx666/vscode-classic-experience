@@ -1212,6 +1212,12 @@
             {
                 "key": "ctrl+]",
                 "mac": "cmd+]",
+                "command": "-composer.nextChatTab",
+                "when": "composerFocused"
+            },
+            {
+                "key": "ctrl+]",
+                "mac": "cmd+]",
                 "command": "aichat.newchataction",
                 "when": "!view.workbench.panel.aichat.view.visible"
             },
