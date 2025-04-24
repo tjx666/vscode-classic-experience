@@ -45,7 +45,7 @@
     ],
     "main": "./out/src/extension.js",
     "icon": "assets/logo.png",
-    "packageManager": "pnpm@9.15.6",
+    "packageManager": "pnpm@10.9.0",
     "engines": {
         "vscode": "^1.96.0"
     },
@@ -1166,8 +1166,14 @@
             },
             {
                 "key": "ctrl+k",
+                "command": "-editor.action.inlineDiffs.focusEditor",
+                "when": "editorHasPromptBar && editorPromptBarFocused",
+                "mac": "cmd+k"
+            },
+            {
+                "key": "ctrl+k",
                 "command": "-cursorai.action.generateInTerminal",
-                "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+                "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalPromptBarVisible || terminalProcessSupported && terminalPromptBarVisible",
                 "mac": "cmd+k"
             },
             {
@@ -1181,8 +1187,14 @@
             },
             {
                 "key": "ctrl+e",
+                "command": "editor.action.inlineDiffs.focusEditor",
+                "when": "editorHasPromptBar && editorPromptBarFocused",
+                "mac": "cmd+e"
+            },
+            {
+                "key": "ctrl+e",
                 "command": "cursorai.action.generateInTerminal",
-                "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported",
+                "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalPromptBarVisible || terminalProcessSupported && terminalPromptBarVisible",
                 "mac": "cmd+e"
             },
             {
@@ -1212,12 +1224,6 @@
             {
                 "key": "ctrl+]",
                 "mac": "cmd+]",
-                "command": "-composer.nextChatTab",
-                "when": "composerFocused"
-            },
-            {
-                "key": "ctrl+]",
-                "mac": "cmd+]",
                 "command": "aichat.newchataction",
                 "when": "!view.workbench.panel.aichat.view.visible"
             },
@@ -1228,8 +1234,7 @@
                 "when": "view.workbench.panel.aichat.view.visible"
             },
             {
-                "key": "shift+ctrl+]",
-                "mac": "shift+cmd+]",
+                "key": "shift+alt+]",
                 "command": "aichat.insertselectionintochat"
             },
             {
@@ -1250,13 +1255,6 @@
                 "command": "-workbench.action.keychord.leader",
                 "when": "false"
             }
-        ]
-    },
-    "eslintConfig": {
-        "extends": "@yutengjing/eslint-config-typescript",
-        "reportUnusedDisableDirectives": false,
-        "ignorePatterns": [
-            "test-workspace"
         ]
     },
     "prettier": "@yutengjing/prettier-config",
@@ -1289,26 +1287,26 @@
     "devDependencies": {
         "@types/glob": "^8.1.0",
         "@types/mocha": "^10.0.10",
-        "@types/node": "~20.17.16",
+        "@types/node": "~22.14.1",
         "@types/vscode": "~1.96.0",
-        "@vscode/test-electron": "^2.4.1",
-        "@vscode/vsce": "^3.2.1",
-        "@yutengjing/eslint-config-typescript": "^1.6.2",
-        "@yutengjing/prettier-config": "^1.5.0",
+        "@vscode/test-electron": "^2.5.2",
+        "@vscode/vsce": "^3.3.2",
+        "@yutengjing/eslint-config-typescript": "^2.5.1",
+        "@yutengjing/prettier-config": "^2.0.0",
         "@yutengjing/release": "^0.3.1",
-        "esbuild": "~0.24.2",
+        "esbuild": "~0.25.3",
         "esbuild-visualizer": "^0.7.0",
-        "eslint": "^8.57.1",
-        "glob": "^11.0.1",
+        "eslint": "^9.25.1",
+        "glob": "^11.0.2",
         "jsonc-parser": "^3.3.1",
-        "lint-staged": "^15.4.2",
+        "lint-staged": "^15.5.1",
         "mocha": "^11.1.0",
         "node-jq": "^6.0.1",
-        "prettier": "^3.4.2",
+        "prettier": "^3.5.3",
         "rimraf": "^6.0.1",
-        "simple-git-hooks": "^2.11.1",
-        "stale-dep": "^0.7.0",
-        "tsx": "^4.19.2",
-        "typescript": "~5.7.3"
+        "simple-git-hooks": "^2.13.0",
+        "stale-dep": "^0.8.2",
+        "tsx": "^4.19.3",
+        "typescript": "~5.8.3"
     }
 }

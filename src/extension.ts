@@ -76,7 +76,6 @@ async function generateKeybindings(extensionPath: string) {
             when: 'editorFocus && !composerBarIsVisible',
             args: { invocationType: 'toggle' },
         },
-
         {
             key: 'ctrl+l',
             mac: 'cmd+l',
@@ -103,8 +102,7 @@ async function generateKeybindings(extensionPath: string) {
             when: 'view.workbench.panel.aichat.view.visible',
         },
         {
-            key: 'shift+ctrl+]',
-            mac: 'shift+cmd+]',
+            key: 'shift+alt+]',
             command: 'aichat.insertselectionintochat',
         },
 
