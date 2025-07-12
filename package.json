@@ -1288,7 +1288,8 @@
         "test": "stale-dep && pnpm compile:test && node ./out/test/runTests.js",
         "package": "vsce package --no-dependencies",
         "release": "npx @yutengjing/release",
-        "publish:vs-marketplace": "vsce publish --no-dependencies"
+        "publish:vs-marketplace": "vsce publish --no-dependencies",
+        "publish:open-vsx": "ovsx publish --no-dependencies"
     },
     "devDependencies": {
         "@types/glob": "^8.1.0",
@@ -1308,6 +1309,7 @@
         "lint-staged": "^15.5.1",
         "mocha": "^11.1.0",
         "node-jq": "^6.0.1",
+        "ovsx": "^0.8.2",
         "prettier": "^3.5.3",
         "rimraf": "^6.0.1",
         "simple-git-hooks": "^2.13.0",
