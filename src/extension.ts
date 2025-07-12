@@ -86,6 +86,12 @@ async function generateKeybindings(extensionPath: string) {
             mac: 'shift+cmd+l',
             command: '-aichat.insertselectionintochat',
         },
+        {
+            key: 'ctrl+e',
+            mac: 'cmd+e',
+            command: '-composer.showBackgroundAgentHistory',
+            when: 'backgroundComposerEnabled',
+        },
     ];
 
     const additionalShortcuts = [

@@ -47,7 +47,7 @@
     "icon": "assets/logo.png",
     "packageManager": "pnpm@10.9.0",
     "engines": {
-        "vscode": "^1.96.0"
+        "vscode": "^1.98.0"
     },
     "badges": [
         {
@@ -1222,6 +1222,12 @@
                 "command": "-aichat.insertselectionintochat"
             },
             {
+                "key": "ctrl+e",
+                "mac": "cmd+e",
+                "command": "-composer.showBackgroundAgentHistory",
+                "when": "backgroundComposerEnabled"
+            },
+            {
                 "key": "ctrl+]",
                 "mac": "cmd+]",
                 "command": "aichat.newchataction",
@@ -1288,7 +1294,7 @@
         "@types/glob": "^8.1.0",
         "@types/mocha": "^10.0.10",
         "@types/node": "~22.14.1",
-        "@types/vscode": "~1.96.0",
+        "@types/vscode": "~1.98.0",
         "@vscode/test-electron": "^2.5.2",
         "@vscode/vsce": "^3.3.2",
         "@yutengjing/eslint-config-typescript": "^2.5.1",
