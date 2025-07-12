@@ -11,36 +11,89 @@
             "additionalProperties": {
                 "type": "object",
                 "description": "Server configuration",
-                "required": ["command", "args"],
-                "properties": {
-                    "command": {
-                        "type": "string",
-                        "description": "The command to run to start the server",
-                        "examples": ["npx", "docker", "uvx"]
-                    },
-                    "args": {
-                        "type": "array",
-                        "description": "Arguments to pass to the command",
-                        "items": {
-                            "type": "string"
-                        },
-                        "examples": [
-                            ["-y", "@modelcontextprotocol/server-postgres", "postgresql://..."]
-                        ]
-                    },
-                    "env": {
-                        "type": "object",
-                        "description": "Environment variables to set when running the server",
-                        "additionalProperties": {
-                            "type": "string"
-                        },
-                        "examples": [
-                            {
-                                "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>"
+                "anyOf": [
+                    {
+                        "description": "URL-based server configuration",
+                        "required": ["url"],
+                        "properties": {
+                            "url": {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "The URL to connect to the MCP server",
+                                "examples": ["https://mcp.deepwiki.com/mcp"]
+                            },
+                            "env": {
+                                "type": "object",
+                                "description": "Environment variables to set when connecting to the server",
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
                             }
-                        ]
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "description": "Command-based server configuration",
+                        "required": ["command"],
+                        "properties": {
+                            "command": {
+                                "type": "string",
+                                "description": "The command to run to start the server",
+                                "examples": [
+                                    "npx",
+                                    "bunx",
+                                    "uvx",
+                                    "docker",
+                                    "npx @vscode-mcp/vscode-mcp-server@latest",
+                                    "docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server"
+                                ]
+                            },
+                            "args": {
+                                "type": "array",
+                                "description": "Arguments to pass to the command",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "examples": [
+                                    [
+                                        "-y",
+                                        "@modelcontextprotocol/server-postgres",
+                                        "postgresql://..."
+                                    ],
+                                    ["-y", "@upstash/context7-mcp@latest"],
+                                    ["@playwright/mcp@latest"],
+                                    ["-y", "firecrawl-mcp"],
+                                    [],
+                                    ["-y", "repomix", "--mcp"],
+                                    ["-y", "@enescinar/twitter-mcp"]
+                                ],
+                                "default": []
+                            },
+                            "env": {
+                                "type": "object",
+                                "description": "Environment variables to set when running the server",
+                                "additionalProperties": {
+                                    "type": "string"
+                                },
+                                "examples": [
+                                    {
+                                        "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>"
+                                    },
+                                    {
+                                        "FIRECRAWL_API_KEY": "<YOUR_API_KEY>"
+                                    },
+                                    {
+                                        "API_KEY": "<YOUR_API_KEY>",
+                                        "API_SECRET_KEY": "<YOUR_SECRET>",
+                                        "ACCESS_TOKEN": "<YOUR_TOKEN>",
+                                        "ACCESS_TOKEN_SECRET": "<YOUR_TOKEN_SECRET>"
+                                    }
+                                ]
+                            }
+                        },
+                        "additionalProperties": false
                     }
-                }
+                ]
             }
         }
     }
