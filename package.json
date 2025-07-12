@@ -1,7 +1,7 @@
 {
     "name": "vscode-classic-experience",
     "displayName": "VSCode Keybindings for Cursor",
-    "version": "6.0.0",
+    "version": "6.0.1",
     "description": "Restore familiar VSCode keybindings in Cursor editor. Smooth transition for VSCode users.",
     "publisher": "YuTengjing",
     "private": true,
