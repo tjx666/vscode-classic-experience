@@ -45,9 +45,9 @@
     ],
     "main": "./out/src/extension.js",
     "icon": "assets/logo.png",
-    "packageManager": "pnpm@10.9.0",
+    "packageManager": "pnpm@10.20.0",
     "engines": {
-        "vscode": "^1.98.0"
+        "vscode": "^1.99.0"
     },
     "badges": [
         {
@@ -1212,6 +1212,12 @@
                 }
             },
             {
+                "key": "shift+ctrl+k",
+                "mac": "shift+cmd+k",
+                "command": "-cursorai.action.generateInTerminal",
+                "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalPromptBarVisible || terminalProcessSupported && terminalPromptBarVisible"
+            },
+            {
                 "key": "ctrl+l",
                 "mac": "cmd+l",
                 "command": "-aichat.newchataction"
@@ -1219,13 +1225,25 @@
             {
                 "key": "shift+ctrl+l",
                 "mac": "shift+cmd+l",
-                "command": "-aichat.insertselectionintochat"
+                "command": "-composer.newAgentChat"
             },
             {
                 "key": "ctrl+e",
                 "mac": "cmd+e",
-                "command": "-composer.showBackgroundAgentHistory",
-                "when": "backgroundComposerEnabled"
+                "command": "-cursor.composer.openAgentWindow",
+                "when": "cursor.appLayoutEnabled && !cursor.agentIdeUnification.featureGate && cursor.appLayout != 'agent'"
+            },
+            {
+                "key": "ctrl+e",
+                "mac": "cmd+e",
+                "command": "-cursor.composer.openEditorWindow",
+                "when": "cursor.appLayoutEnabled && !cursor.agentIdeUnification.featureGate && cursor.appLayout == 'agent'"
+            },
+            {
+                "key": "ctrl+e",
+                "mac": "cmd+e",
+                "command": "-cursor.toggleAgentWindowIDEUnification",
+                "when": "cursor.agentIdeUnification.featureGate && workbenchState != 'empty'"
             },
             {
                 "key": "ctrl+]",
@@ -1295,7 +1313,7 @@
         "@types/glob": "^8.1.0",
         "@types/mocha": "^10.0.10",
         "@types/node": "~22.14.1",
-        "@types/vscode": "~1.98.0",
+        "@types/vscode": "~1.99.0",
         "@vscode/test-electron": "^2.5.2",
         "@vscode/vsce": "^3.3.2",
         "@yutengjing/eslint-config-typescript": "^2.5.1",

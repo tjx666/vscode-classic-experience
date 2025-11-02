@@ -77,20 +77,34 @@ async function generateKeybindings(extensionPath: string) {
             args: { invocationType: 'toggle' },
         },
         {
+            key: 'shift+ctrl+k',
+            mac: 'shift+cmd+k',
+            command: '-cursorai.action.generateInTerminal',
+            when: 'terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalPromptBarVisible || terminalProcessSupported && terminalPromptBarVisible',
+        },
+        {
             key: 'ctrl+l',
             mac: 'cmd+l',
             command: '-aichat.newchataction',
         },
+        { key: 'shift+ctrl+l', mac: 'shift+cmd+l', command: '-composer.newAgentChat' },
         {
-            key: 'shift+ctrl+l',
-            mac: 'shift+cmd+l',
-            command: '-aichat.insertselectionintochat',
+            key: 'ctrl+e',
+            mac: 'cmd+e',
+            command: '-cursor.composer.openAgentWindow',
+            when: "cursor.appLayoutEnabled && !cursor.agentIdeUnification.featureGate && cursor.appLayout != 'agent'",
         },
         {
             key: 'ctrl+e',
             mac: 'cmd+e',
-            command: '-composer.showBackgroundAgentHistory',
-            when: 'backgroundComposerEnabled',
+            command: '-cursor.composer.openEditorWindow',
+            when: "cursor.appLayoutEnabled && !cursor.agentIdeUnification.featureGate && cursor.appLayout == 'agent'",
+        },
+        {
+            key: 'ctrl+e',
+            mac: 'cmd+e',
+            command: '-cursor.toggleAgentWindowIDEUnification',
+            when: "cursor.agentIdeUnification.featureGate && workbenchState != 'empty'",
         },
     ];
 
